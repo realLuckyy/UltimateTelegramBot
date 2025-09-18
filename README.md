@@ -1,41 +1,41 @@
-# ?? Ultimate Telegram Bot
+# Ultimate Telegram Bot
 
 A comprehensive Telegram bot with gamification features, economy system, referral program, and community management tools.
 
-## ? Features
+## Features
 
-### ?? Gamification System
+### Gamification System
 - **XP & Levels**: Users earn experience points and level up by posting content
 - **Streaks**: Daily posting streaks with rewards and streak protection
 - **Achievements**: Unlock badges for various milestones and activities
 - **Leaderboards**: Daily, weekly, and all-time rankings
 
-### ?? Economy System
+### Economy System
 - **Coins**: Earn coins through posts, reactions, referrals, and achievements
 - **Shop**: Purchase boosters, custom titles, streak protection, and more
 - **Rewards**: Multiple ways to earn coins and special items
 
-### ?? Referral Program
+### Referral Program
 - **Referral Codes**: Unique codes for each user to invite friends
 - **Bonuses**: Welcome bonuses for new members and milestone rewards for referrers
 - **Tracking**: Complete referral statistics and progress tracking
 
-### ?? Weekly Challenges
+### Weekly Challenges
 - **Rotating Challenges**: New set of challenges each week
 - **Variety**: Photo spree, streak keeper, social butterfly, and more
 - **Rewards**: Bonus coins for completing challenges
 
-### ??? Community Management
+### Community Management
 - **New Member Enforcement**: Automatic removal of inactive new members
 - **Inactivity Policy**: Warning system for inactive users
 - **Content Tracking**: Monitor different types of content (photos, videos, links)
 
-### ?? Analytics & Stats
+### Analytics & Stats
 - **Comprehensive Statistics**: Daily, weekly, and all-time stats
 - **Content Analysis**: Track different content types and engagement
 - **Reaction System**: Monitor and reward popular content
 
-## ?? Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -66,7 +66,7 @@ A comprehensive Telegram bot with gamification features, economy system, referra
    python UltimateTelegrambot.py
    ```
 
-## ?? Setup with BotFather
+## Setup with BotFather
 
 ### Creating Your Bot
 
@@ -99,11 +99,11 @@ A comprehensive Telegram bot with gamification features, economy system, referra
 ### Required Bot Permissions
 
 Make sure your bot has these permissions in your group:
-- ? **Send Messages**
-- ? **Delete Messages** 
-- ? **Ban Users**
-- ? **Read Message History**
-- ? **Add Users to Group**
+- **Send Messages**
+- **Delete Messages** 
+- **Ban Users**
+- **Read Message History**
+- **Add Users to Group**
 
 ### Adding Bot to Group
 
@@ -111,7 +111,7 @@ Make sure your bot has these permissions in your group:
 2. Make the bot an **Administrator** with the required permissions above
 3. Send `/help` in the group to verify the bot is working
 
-## ?? Available Commands
+## Available Commands
 
 ### User Commands
 | Command | Description |
@@ -136,14 +136,14 @@ Make sure your bot has these permissions in your group:
 | `/chatid` | Display group's Chat ID |
 
 ### Shop Items
-- ??? **Custom Badge** (200 coins) - Personalized profile badge
-- ? **XP Booster** (150 coins) - 2x XP for 24 hours
-- ?? **Custom Title** (300 coins) - Unlock custom title
-- ?? **Streak Freeze** (100 coins) - Protect streak for 2 days
-- ?? **Coin Multiplier** (120 coins) - 2x coins for 12 hours
-- ?? **Referral Booster** (180 coins) - 2x referral rewards for 48 hours
+- **Custom Badge** (200 coins) - Personalized profile badge
+- **XP Booster** (150 coins) - 2x XP for 24 hours
+- **Custom Title** (300 coins) - Unlock custom title
+- **Streak Freeze** (100 coins) - Protect streak for 2 days
+- **Coin Multiplier** (120 coins) - 2x coins for 12 hours
+- **Referral Booster** (180 coins) - 2x referral rewards for 48 hours
 
-## ?? Configuration
+## Configuration
 
 ### Customizable Settings
 
@@ -166,14 +166,14 @@ COIN_REFERRAL_SIGNUP = 50                        # Referral signup bonus
 ```
 
 ### Weekly Challenge Types
-- ?? **Photo Spree** - Share photos
-- ?? **Streak Keeper** - Maintain posting streaks  
-- ?? **Social Butterfly** - Get reactions
-- ?? **Content Creator** - Post various content
-- ?? **Early Bird** - Post during morning hours
-- ?? **Referral Master** - Refer new members
+- **Photo Spree** - Share photos
+- **Streak Keeper** - Maintain posting streaks  
+- **Social Butterfly** - Get reactions
+- **Content Creator** - Post various content
+- **Early Bird** - Post during morning hours
+- **Referral Master** - Refer new members
 
-## ??? Architecture
+## Architecture
 
 ### Core Components
 - **State Management**: In-memory dictionaries for all bot data
@@ -189,7 +189,7 @@ COIN_REFERRAL_SIGNUP = 50                        # Referral signup bonus
 - Challenge progress monitoring
 - Referral relationship mapping
 
-## ?? Statistics Tracking
+## Statistics Tracking
 
 The bot tracks comprehensive statistics including:
 - Daily, weekly, and total post counts
@@ -199,7 +199,7 @@ The bot tracks comprehensive statistics including:
 - Referral networks and success rates
 - Challenge completion rates
 
-## ?? Security Features
+## Security Features
 
 - **Input Validation**: All user inputs are properly sanitized
 - **Rate Limiting**: Built-in protection against spam
@@ -207,7 +207,7 @@ The bot tracks comprehensive statistics including:
 - **Error Handling**: Graceful handling of API failures
 - **Data Persistence**: Automatic cleanup of stale data
 
-## ??? Development
+## Development
 
 ### Project Structure
 ```
@@ -230,21 +230,21 @@ UltimateTelegramBot/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## ?? License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ? Support
+## Support
 
 If this project helps you, please consider:
 
-- ? **Star the repository** on GitHub
-- ?? **Report bugs** via issues
-- ?? **Suggest features** for improvement
-- ?? **Contribute code** through pull requests
-- ? **[Buy me a coffee](https://ko-fi.com/root)** to support development
+- **Star the repository** on GitHub
+- **Report bugs** via issues
+- **Suggest features** for improvement
+- **Contribute code** through pull requests
+- **[Buy me a coffee](https://ko-fi.com/root)** to support development
 
-## ? Need Help?
+## Need Help?
 
 If you encounter any issues or have questions:
 
@@ -253,26 +253,26 @@ If you encounter any issues or have questions:
 3. Create a new issue with detailed information
 4. Join our support group (if available)
 
-## ?? Updates & Roadmap
+## Updates & Roadmap
 
 ### Recent Updates
-- ? Referral system with milestone tracking
-- ? Weekly challenges with rotating content
-- ? Enhanced economy with boosters
-- ? Comprehensive achievement system
+- Referral system with milestone tracking
+- Weekly challenges with rotating content
+- Enhanced economy with boosters
+- Comprehensive achievement system
 
 ### Upcoming Features
-- ??? Database persistence (SQLite/PostgreSQL)
-- ?? Web dashboard for statistics
-- ?? Multi-language support
-- ?? Custom challenge creation
-- ?? Integration with external APIs
-- ??? Advanced moderation tools
+- Database persistence (SQLite/PostgreSQL)
+- Web dashboard for statistics
+- Multi-language support
+- Custom challenge creation
+- Integration with external APIs
+- Advanced moderation tools
 
 ---
 
-**Made with ?? for the Telegram community**
+**Made with care for the Telegram community**
 
 *This bot is designed to create engaging and active Telegram groups through gamification and community features.*
 
-**Support Development:** ? [Buy me a coffee](https://ko-fi.com/root) ?
+**Support Development:** [Buy me a coffee](https://ko-fi.com/root)

@@ -2,25 +2,25 @@
 
 ```
 UltimateTelegramBot/
-??? ?? .github/
+??? .github/
 ?   ??? workflows/
 ?       ??? ci-cd.yml                 # GitHub Actions CI/CD pipeline
-??? ?? docs/
+??? docs/
 ?   ??? API.md                        # Complete API reference & command guide
 ?   ??? DEPLOYMENT.md                 # Comprehensive deployment guide
 ?   ??? FEATURES.md                   # Detailed feature documentation  
 ?   ??? SETUP.md                      # Step-by-step setup instructions
-??? ?? .gitignore                     # Git ignore rules
-??? ?? CHANGELOG.md                   # Version history and changes
-??? ?? CONTRIBUTING.md                # Contribution guidelines
-??? ?? LICENSE                        # MIT License
-??? ?? README.md                      # Main project documentation
-??? ?? requirements.txt               # Python dependencies
-??? ?? setup.py                       # Interactive setup script
-??? ?? UltimateTelegrambot.py        # Main bot application
+??? .gitignore                        # Git ignore rules
+??? CHANGELOG.md                      # Version history and changes
+??? CONTRIBUTING.md                   # Contribution guidelines
+??? LICENSE                           # MIT License
+??? README.md                         # Main project documentation
+??? requirements.txt                  # Python dependencies
+??? setup.py                          # Interactive setup script
+??? UltimateTelegrambot.py           # Main bot application
 ```
 
-## ?? File Descriptions
+## File Descriptions
 
 ### Core Files
 - **`UltimateTelegrambot.py`** - Main bot application with all features
@@ -43,9 +43,9 @@ UltimateTelegramBot/
 - **`.gitignore`** - Files to exclude from version control
 - **`LICENSE`** - MIT License terms
 
-## ?? Key Features Implemented
+## Key Features Implemented
 
-### ? Completed Features
+### Completed Features
 1. **Gamification System**
    - XP and level progression
    - Daily posting streaks
@@ -77,14 +77,14 @@ UltimateTelegramBot/
    - User profiles
    - Group statistics
 
-### ?? Future Enhancements
+### Future Enhancements
 - Database integration (SQLite/PostgreSQL)
 - Web dashboard
 - Multi-language support
 - Advanced analytics
 - Plugin system
 
-## ?? Getting Started
+## Getting Started
 
 1. **Clone the repository**: `git clone https://github.com/realLuckyy/UltimateTelegramBot.git`
 2. **Run setup**: `python setup.py`
@@ -92,7 +92,7 @@ UltimateTelegramBot/
 4. **Add to group** and make admin
 5. **Test**: Send `/help` in group
 
-## ?? Documentation Hierarchy
+## Documentation Hierarchy
 
 ```
 README.md (Start here)
@@ -128,7 +128,7 @@ docs/DEPLOYMENT.md (Production guide)
 ??? Performance optimization
 ```
 
-## ??? Quality Assurance
+## Quality Assurance
 
 ### Automated Testing
 - GitHub Actions CI/CD pipeline
@@ -151,7 +151,7 @@ docs/DEPLOYMENT.md (Production guide)
 - Permission checks
 - Graceful error handling
 
-## ?? Project Statistics
+## Project Statistics
 
 - **Lines of Code**: ~1,500+ (main bot file)
 - **Commands**: 18 user commands
@@ -161,7 +161,7 @@ docs/DEPLOYMENT.md (Production guide)
 - **Documentation**: 4 comprehensive guides
 - **Supported Platforms**: All (Windows, Linux, macOS)
 
-## ?? Community
+## Community
 
 ### Contributing
 See `CONTRIBUTING.md` for:
@@ -176,20 +176,20 @@ See `CONTRIBUTING.md` for:
 - **Comprehensive documentation** in the `docs/` folder
 - **Example configurations** and setup guides
 
-## ? Support Development
+## Support Development
 
 If this project helps you build amazing Telegram communities:
 
-- ? **Star the repository** to show appreciation
-- ?? **Report bugs** to help improve the project
-- ?? **Suggest new features** for enhancement
-- ?? **Contribute code** through pull requests
-- ?? **Share with others** who might find it useful
-- ? **[Buy me a coffee](https://ko-fi.com/root)** to support development
+- **Star the repository** to show appreciation
+- **Report bugs** to help improve the project
+- **Suggest new features** for enhancement
+- **Contribute code** through pull requests
+- **Share with others** who might find it useful
+- **[Buy me a coffee](https://ko-fi.com/root)** to support development
 
 Your support helps maintain and enhance this project for the entire community!
 
-## ?? Community Impact
+## Community Impact
 
 This bot has been designed to:
 - **Increase engagement** in Telegram groups through gamification
@@ -202,5 +202,5 @@ This bot has been designed to:
 
 This repository provides everything needed to deploy and maintain a comprehensive Telegram community bot with advanced features and professional-grade documentation.
 
-**Made with ?? for the Telegram community**  
-**Support the project**: ? [Buy me a coffee](https://ko-fi.com/root) ?
+**Made with care for the Telegram community**  
+**Support the project**: [Buy me a coffee](https://ko-fi.com/root)

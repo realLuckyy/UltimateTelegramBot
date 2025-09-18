@@ -1,8 +1,8 @@
-# ?? Contributing to Ultimate Telegram Bot
+# Contributing to Ultimate Telegram Bot
 
 Thank you for your interest in contributing to the Ultimate Telegram Bot! This document provides guidelines and information for contributors.
 
-## ?? How to Contribute
+## How to Contribute
 
 ### Reporting Issues
 Before creating an issue, please:
@@ -143,7 +143,7 @@ Include screenshots or GIFs of new features
 Fixes #123
 ```
 
-## ??? Development Guidelines
+## Development Guidelines
 
 ### Architecture Principles
 
@@ -185,9 +185,9 @@ Fixes #123
 3. **Update help text**:
    ```python
    HELP_TEXT = (
-       "?? <b>Bot Commands</b>\n\n"
+       "Bot Commands\n\n"
        # ... existing commands ...
-       "?? /newcommand ? Description of new command\n"
+       "/newcommand ? Description of new command\n"
    )
    ```
 
@@ -203,7 +203,7 @@ Fixes #123
 1. **Add to achievements class**:
    ```python
    class Ach:
-       NewAchievement = "?? New Achievement"
+       NewAchievement = "New Achievement"
    ```
 
 2. **Add checking logic**:
@@ -211,7 +211,7 @@ Fixes #123
    async def check_new_achievement(context, chat_id, user_id):
        if condition_met:
            await grant_ach(context, chat_id, user_id, Ach.NewAchievement, 
-                          "?? <b>New Achievement</b> — description!")
+                          "New Achievement — description!")
    ```
 
 3. **Integrate checking**: Call in appropriate places
@@ -220,11 +220,11 @@ Fixes #123
 1. **Add to shop items**:
    ```python
    SHOP_ITEMS["new_item"] = {
-       "name": "?? New Item",
+       "name": "New Item",
        "description": "Item description",
        "price": 100,
        "type": "boost",  # or "cosmetic", "protection", etc.
-       "emoji": "??"
+       "emoji": ""
    }
    ```
 
@@ -249,7 +249,7 @@ When implementing database support:
 - Support both in-memory and database modes
 - Gradual migration approach
 
-## ?? Development Tools
+## Development Tools
 
 ### Recommended IDE Setup
 - **VS Code** with Python extension
@@ -270,7 +270,7 @@ import os
 TOKEN = os.getenv('BOT_TOKEN', 'place_token_here')
 ```
 
-## ? Contribution Checklist
+## Contribution Checklist
 
 Before submitting a pull request:
 
@@ -299,14 +299,14 @@ Before submitting a pull request:
 - [ ] No merge conflicts
 - [ ] Logical commit organization
 
-## ?? Recognition
+## Recognition
 
 Contributors will be recognized in:
 - Repository contributors list
 - Release notes for significant contributions  
 - Special achievements in the bot (if applicable)
 
-## ?? Communication
+## Communication
 
 ### Getting Help
 - Create an issue for questions
@@ -320,24 +320,24 @@ Contributors will be recognized in:
 - Respond to review comments promptly
 - Learn from the review process
 
-## ? Support Development
+## Support Development
 
 If you find this project helpful and want to support its continued development:
 
-- ? **Star the repository** to show your appreciation
-- ?? **Report bugs** to help improve the project
-- ?? **Suggest features** for enhancement
-- ?? **Contribute code** through pull requests
-- ? **[Buy me a coffee](https://ko-fi.com/root)** to fuel development
+- **Star the repository** to show your appreciation
+- **Report bugs** to help improve the project
+- **Suggest features** for enhancement
+- **Contribute code** through pull requests
+- **[Buy me a coffee](https://ko-fi.com/root)** to fuel development
 
 Your support helps maintain and improve this project for the entire community!
 
-## ?? License
+## License
 
 By contributing to this project, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-Thank you for contributing to the Ultimate Telegram Bot! Your efforts help make this project better for everyone. ??
+Thank you for contributing to the Ultimate Telegram Bot! Your efforts help make this project better for everyone.
 
-**Support the Project**: ? [Buy me a coffee](https://ko-fi.com/root) ?
+**Support the Project**: [Buy me a coffee](https://ko-fi.com/root)

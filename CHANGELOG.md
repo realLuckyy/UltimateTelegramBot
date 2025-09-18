@@ -1,4 +1,4 @@
-# ?? Changelog
+# Changelog
 
 All notable changes to the Ultimate Telegram Bot project will be documented in this file.
 
@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2024-01-15
 
-### ?? Initial Release
+### Initial Release
 
 #### Added
 - **Complete Gamification System**
@@ -211,10 +211,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
 - **Documentation**: Check the `docs/` directory
 - **Issues**: Create GitHub issues for bugs
 - **Discussions**: Use GitHub discussions for questions
-- **Coffee**: ? [Support development](https://ko-fi.com/root) ?
+- **Coffee**: [Support development](https://ko-fi.com/root)
 
 ---
 
 **Note**: This changelog is automatically updated with each release. For the most current information, check the repository's releases page.
 
-**Support the Project**: If this bot helps your community, consider [buying me a coffee](https://ko-fi.com/root)! ?
+**Support the Project**: If this bot helps your community, consider [buying me a coffee](https://ko-fi.com/root)!
