@@ -1,0 +1,289 @@
+﻿name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10', 3.11]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-asyncio pytest-cov flake8
+    
+    - name: Lint with flake8
+      run: |
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats all errors as warnings. GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    
+    - name: Test bot import
+      run: |
+        # Test that the bot can be imported without token
+        python -c "
+        import sys
+        sys.path.insert(0, '.')
+        # Mock the token to test import
+        with open('UltimateTelegrambot.py', 'r') as f:
+            content = f.read()
+        content = content.replace('TOKEN = \"PLEASE_SET_YOUR_BOT_TOKEN_HERE\"', 'TOKEN = \"123456789:ABCdefGHIjklMNOpqrsTUVwxyz-test\"')
+        with open('test_bot.py', 'w') as f:
+            f.write(content)
+        # Test import (but don't run)
+        import ast
+        with open('test_bot.py', 'r') as f:
+            ast.parse(f.read())
+        print('✅ Bot syntax is valid')
+        "
+    
+    - name: Test setup script
+      run: |
+        python -c "
+        # Test setup script syntax
+        import ast
+        with open('setup.py', 'r') as f:
+            ast.parse(f.read())
+        print('✅ Setup script syntax is valid')
+        "
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+    
+    - name: Run Bandit security linter
+      run: |
+        bandit -r . -f json -o bandit-report.json || true
+        bandit -r . || true
+    
+    - name: Check for known security vulnerabilities
+      run: |
+        safety check --json || true
+
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check documentation files
+      run: |
+        # Check that all required documentation exists
+        files=("README.md" "docs/SETUP.md" "docs/FEATURES.md" "docs/API.md" "LICENSE")
+        for file in "${files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file exists"
+          else
+            echo "❌ $file missing"
+            exit 1
+          fi
+        done
+    
+    - name: Validate markdown
+      uses: DavidAnson/markdownlint-cli2-action@v13
+      with:
+        globs: '**/*.md'
+        config: |
+          {
+            "line-length": false,
+            "no-inline-html": false
+          }
+
+  build:
+    needs: [test, security, documentation]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Create distribution
+      run: |
+        # Create a distribution package
+        mkdir -p dist
+        
+        # Copy main files
+        cp UltimateTelegrambot.py dist/
+        cp requirements.txt dist/
+        cp setup.py dist/
+        cp README.md dist/
+        cp LICENSE dist/
+        
+        # Copy documentation
+        cp -r docs dist/
+        
+        # Create version info
+        echo "Built on: $(date)" > dist/BUILD_INFO.txt
+        echo "Commit: ${{ github.sha }}" >> dist/BUILD_INFO.txt
+        echo "Branch: ${{ github.ref }}" >> dist/BUILD_INFO.txt
+        
+        # Create archive
+        cd dist
+        tar -czf ../ultimate-telegram-bot.tar.gz .
+        cd ..
+    
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ultimate-telegram-bot
+        path: ultimate-telegram-bot.tar.gz
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download build artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: ultimate-telegram-bot
+    
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Ultimate Telegram Bot ${{ github.ref }}
+        draft: false
+        prerelease: false
+        body: |
+          ## Ultimate Telegram Bot Release
+          
+          ### 🎉 What's New
+          - Complete gamification system
+          - Economy and shop features
+          - Referral system
+          - Weekly challenges
+          - Comprehensive achievement system
+          
+          ### 📦 Installation
+          1. Download the release archive
+          2. Extract to your desired location
+          3. Run `python setup.py` to configure
+          4. Start with `python UltimateTelegrambot.py`
+          
+          ### 📚 Documentation
+          - [Setup Guide](https://github.com/realLuckyy/UltimateTelegramBot/blob/main/docs/SETUP.md)
+          - [Features Overview](https://github.com/realLuckyy/UltimateTelegramBot/blob/main/docs/FEATURES.md)
+          - [API Reference](https://github.com/realLuckyy/UltimateTelegramBot/blob/main/docs/API.md)
+          
+          Full changelog and documentation available in the repository.
+
+  docker:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Create Dockerfile
+      run: |
+        cat > Dockerfile << 'EOF'
+        FROM python:3.11-slim
+        
+        WORKDIR /app
+        
+        # Install dependencies
+        COPY requirements.txt .
+        RUN pip install --no-cache-dir -r requirements.txt
+        
+        # Copy bot files
+        COPY UltimateTelegrambot.py .
+        COPY setup.py .
+        
+        # Create non-root user
+        RUN useradd -m -u 1000 botuser && chown -R botuser:botuser /app
+        USER botuser
+        
+        # Health check
+        HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+          CMD python -c "import requests; requests.get('https://api.telegram.org')" || exit 1
+        
+        CMD ["python", "UltimateTelegrambot.py"]
+        EOF
+    
+    - name: Create docker-compose.yml
+      run: |
+        cat > docker-compose.yml << 'EOF'
+        version: '3.8'
+        
+        services:
+          telegram-bot:
+            build: .
+            container_name: ultimate-telegram-bot
+            restart: unless-stopped
+            environment:
+              - BOT_TOKEN=${BOT_TOKEN}
+            volumes:
+              - bot-data:/app/data
+            networks:
+              - bot-network
+            
+          # Optional: Add database for future persistence
+          # postgres:
+          #   image: postgres:15-alpine
+          #   container_name: bot-postgres
+          #   restart: unless-stopped
+          #   environment:
+          #     POSTGRES_DB: telegram_bot
+          #     POSTGRES_USER: botuser
+          #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+          #   volumes:
+          #     - postgres-data:/var/lib/postgresql/data
+          #   networks:
+          #     - bot-network
+        
+        volumes:
+          bot-data:
+          # postgres-data:
+        
+        networks:
+          bot-network:
+            driver: bridge
+        EOF
+    
+    - name: Validate Docker files
+      run: |
+        # Basic validation
+        docker --version
+        echo "✅ Dockerfile and docker-compose.yml created"

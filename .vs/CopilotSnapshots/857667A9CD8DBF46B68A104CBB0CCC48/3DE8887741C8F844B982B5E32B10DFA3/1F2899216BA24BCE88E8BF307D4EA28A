@@ -1,0 +1,211 @@
+﻿#!/usr/bin/env python3
+"""
+Setup script for Ultimate Telegram Bot
+Handles initial configuration and token setup
+"""
+
+import os
+import sys
+import re
+from pathlib import Path
+
+def print_banner():
+    """Print setup banner"""
+    print("=" * 60)
+    print("🤖 ULTIMATE TELEGRAM BOT - SETUP WIZARD")
+    print("=" * 60)
+    print()
+
+def validate_token(token):
+    """Validate Telegram bot token format"""
+    pattern = r'^\d{8,10}:[A-Za-z0-9_-]{35}$'
+    return re.match(pattern, token) is not None
+
+def setup_token():
+    """Interactive token setup"""
+    print("📝 BOT TOKEN CONFIGURATION")
+    print("-" * 30)
+    print("You need a Telegram bot token from @BotFather")
+    print("Token format: 123456789:ABCdefGHIjklMNOpqrsTUVwxyz")
+    print()
+    
+    while True:
+        token = input("Enter your bot token: ").strip()
+        
+        if not token:
+            print("❌ Token cannot be empty!")
+            continue
+            
+        if not validate_token(token):
+            print("❌ Invalid token format!")
+            print("Expected format: 123456789:ABCdefGHIjklMNOpqrsTUVwxyz")
+            continue
+            
+        # Confirm token
+        print(f"✅ Token looks valid: {token[:10]}...{token[-10:]}")
+        confirm = input("Is this correct? (y/n): ").strip().lower()
+        
+        if confirm in ['y', 'yes']:
+            return token
+        else:
+            print("Let's try again...\n")
+
+def update_bot_file(token):
+    """Update the bot file with the new token"""
+    bot_file = Path("UltimateTelegrambot.py")
+    
+    if not bot_file.exists():
+        print(f"❌ Bot file not found: {bot_file}")
+        return False
+    
+    # Read the file
+    try:
+        with open(bot_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception as e:
+        print(f"❌ Error reading bot file: {e}")
+        return False
+    
+    # Replace the token
+    old_pattern = r'TOKEN\s*=\s*os\.getenv\([^)]*,\s*["\'][^"\']*["\'][^)]*\)'
+    new_token_line = f'TOKEN = os.getenv(\'BOT_TOKEN\', "{token}")'
+    
+    if re.search(old_pattern, content):
+        content = re.sub(old_pattern, new_token_line, content)
+    else:
+        # Fallback to simpler pattern
+        old_simple_pattern = r'TOKEN\s*=\s*["\'][^"\']*["\']'
+        new_simple_line = f'TOKEN = "{token}"'
+        if re.search(old_simple_pattern, content):
+            content = re.sub(old_simple_pattern, new_simple_line, content)
+        else:
+            print("❌ Could not find TOKEN line in bot file")
+            return False
+    
+    # Write back to file
+    try:
+        with open(bot_file, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print("✅ Bot token updated successfully!")
+        return True
+    except Exception as e:
+        print(f"❌ Error writing bot file: {e}")
+        return False
+
+def check_dependencies():
+    """Check if required dependencies are installed"""
+    print("\n📦 DEPENDENCY CHECK")
+    print("-" * 20)
+    
+    required_packages = [
+        'telegram',
+        'asyncio',
+        'datetime',
+        'collections',
+        'typing',
+        'random',
+        'hashlib',
+        'base64'
+    ]
+    
+    missing_packages = []
+    
+    for package in required_packages:
+        try:
+            __import__(package.replace('-', '_'))
+            print(f"✅ {package}")
+        except ImportError:
+            print(f"❌ {package} - MISSING")
+            missing_packages.append(package)
+    
+    if missing_packages:
+        print(f"\n⚠️  Missing packages: {', '.join(missing_packages)}")
+        print("Run: pip install -r requirements.txt")
+        return False
+    else:
+        print("\n✅ All dependencies are installed!")
+        return True
+
+def create_config_backup():
+    """Create a backup of the configuration"""
+    config_file = Path("config_backup.txt")
+    
+    try:
+        with open(config_file, 'w', encoding='utf-8') as f:
+            f.write("# Ultimate Telegram Bot Configuration Backup\n")
+            f.write(f"# Created: {os.getcwd()}\n")
+            f.write(f"# Date: {__import__('datetime').datetime.now()}\n")
+            f.write("# \n")
+            f.write("# Your bot has been configured successfully!\n")
+            f.write("# Keep this file safe as a backup record.\n")
+        
+        print(f"✅ Configuration backup saved to: {config_file}")
+    except Exception as e:
+        print(f"⚠️  Could not create backup: {e}")
+
+def show_next_steps():
+    """Show next steps after setup"""
+    print("\n🚀 SETUP COMPLETE!")
+    print("=" * 50)
+    print()
+    print("Next steps:")
+    print("1️⃣  Run the bot: python UltimateTelegrambot.py")
+    print("2️⃣  Add bot to your Telegram group")
+    print("3️⃣  Make bot an administrator with these permissions:")
+    print("    • Delete Messages")
+    print("    • Ban Users")  
+    print("    • Invite Users")
+    print("4️⃣  Send /help in the group to test")
+    print()
+    print("📚 Documentation:")
+    print("   • README.md - Overview and quick start")
+    print("   • docs/SETUP.md - Detailed setup guide")
+    print("   • docs/FEATURES.md - Complete feature list")
+    print("   • docs/API.md - Command reference")
+    print()
+    print("🆘 Need help? Check the documentation or create an issue!")
+    print("☕ Support development: https://ko-fi.com/root")
+    print()
+
+def main():
+    """Main setup function"""
+    print_banner()
+    
+    # Check if we're in the right directory
+    if not Path("UltimateTelegrambot.py").exists():
+        print("❌ UltimateTelegrambot.py not found in current directory!")
+        print("Please run this script from the bot's root directory.")
+        sys.exit(1)
+    
+    # Check dependencies first
+    if not check_dependencies():
+        print("\n⚠️  Please install missing dependencies first:")
+        print("pip install -r requirements.txt")
+        sys.exit(1)
+    
+    # Setup token
+    print("\n" + "="*60)
+    token = setup_token()
+    
+    # Update bot file
+    print(f"\n📝 UPDATING BOT CONFIGURATION")
+    print("-" * 35)
+    if not update_bot_file(token):
+        print("❌ Failed to update bot configuration!")
+        sys.exit(1)
+    
+    # Create backup
+    create_config_backup()
+    
+    # Show next steps
+    show_next_steps()
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n👋 Setup cancelled by user.")
+        sys.exit(0)
+    except Exception as e:
+        print(f"\n❌ Setup failed with error: {e}")
+        sys.exit(1)

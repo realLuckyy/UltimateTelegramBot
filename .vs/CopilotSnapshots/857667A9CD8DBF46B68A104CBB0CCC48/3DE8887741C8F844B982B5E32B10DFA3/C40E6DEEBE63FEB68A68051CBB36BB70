@@ -1,0 +1,60 @@
+﻿#!/usr/bin/env python3
+"""
+Ultimate Telegram Bot - A comprehensive community bot with gamification features
+
+Version: 1.0.0
+Author: Community Contributors
+License: MIT
+Repository: https://github.com/realLuckyy/UltimateTelegramBot
+
+Features:
+- Gamification with XP, levels, and achievements
+- Economy system with coins and shop
+- Referral program with bonuses
+- Weekly challenges
+- Community management and moderation
+- Comprehensive statistics and leaderboards
+"""
+
+import asyncio
+from datetime import datetime, timedelta, timezone, time
+from collections import defaultdict
+from typing import Dict, Set, List, Tuple
+import random
+import hashlib
+import base64
+import os
+
+from telegram import (
+    Update,
+    ChatMember,
+    ChatMemberUpdated,
+    Message,
+    MessageReactionUpdated,
+    ReactionTypeEmoji,
+)
+from telegram.constants import ParseMode, ChatMemberStatus
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    MessageHandler,
+    ChatMemberHandler,
+    MessageReactionHandler,
+    filters,
+    ContextTypes,
+)
+from telegram.request import HTTPXRequest
+from telegram.error import TimedOut, NetworkError, RetryAfter, Forbidden
+
+# ========= CONFIG =========
+# Get token from environment variable or use placeholder
+TOKEN = os.getenv('BOT_TOKEN', "PLEASE_SET_YOUR_BOT_TOKEN_HERE")
+
+if TOKEN == "PLEASE_SET_YOUR_BOT_TOKEN_HERE":
+    print("⚠️  WARNING: Bot token not configured!")
+    print("Please set your bot token by either:")
+    print("1. Running: python setup.py")
+    print("2. Setting environment variable: export BOT_TOKEN='your_token_here'")
+    print("3. Editing this file and replacing TOKEN value")
+
+# ...existing code...
