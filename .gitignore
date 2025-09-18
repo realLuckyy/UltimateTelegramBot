@@ -135,6 +135,43 @@ config.json
 bot_token.txt
 secrets.py
 
+# Visual Studio
+.vs/
+*.vsidx
+*.vspscc
+*.vssscc
+*.sln.docstates
+*.userprefs
+bin/
+obj/
+*.user
+*.suo
+*.sln
+*.csproj
+*.vbproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln.ide/
+*.sln.DotSettings.user
+TestResults/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
 # IDE files
 .vscode/
 .idea/
