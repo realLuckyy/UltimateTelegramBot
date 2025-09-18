@@ -143,7 +143,7 @@ Include screenshots or GIFs of new features
 Fixes #123
 ```
 
-## ?? Development Guidelines
+## ??? Development Guidelines
 
 ### Architecture Principles
 
@@ -270,7 +270,7 @@ import os
 TOKEN = os.getenv('BOT_TOKEN', 'place_token_here')
 ```
 
-## ?? Contribution Checklist
+## ? Contribution Checklist
 
 Before submitting a pull request:
 
@@ -299,7 +299,7 @@ Before submitting a pull request:
 - [ ] No merge conflicts
 - [ ] Logical commit organization
 
-## ??? Recognition
+## ?? Recognition
 
 Contributors will be recognized in:
 - Repository contributors list
