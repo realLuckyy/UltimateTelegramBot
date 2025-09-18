@@ -83,7 +83,7 @@ TITLE_THRESHOLDS = [
 # Weekly challenges
 WEEKLY_CHALLENGES = {
     "photo_spree": {
-        "name": "📸 Photo Spree",
+        "name": "Photo Spree",
         "description": "Share 20 photos this week",
         "target": 20,
         "type": "photo",
@@ -91,7 +91,7 @@ WEEKLY_CHALLENGES = {
         "emoji": "📸"
     },
     "streak_keeper": {
-        "name": "🔥 Streak Keeper",
+        "name": "Streak Keeper",
         "description": "Maintain a 5+ day streak",
         "target": 5,
         "type": "streak",
@@ -99,7 +99,7 @@ WEEKLY_CHALLENGES = {
         "emoji": "🔥"
     },
     "social_butterfly": {
-        "name": "🦋 Social Butterfly",
+        "name": "Social Butterfly",
         "description": "Get 30 reactions on your posts",
         "target": 30,
         "type": "reactions",
@@ -107,7 +107,7 @@ WEEKLY_CHALLENGES = {
         "emoji": "🦋"
     },
     "content_creator": {
-        "name": "🎨 Content Creator",
+        "name": "Content Creator",
         "description": "Post 15 pieces of content",
         "target": 15,
         "type": "posts",
@@ -115,7 +115,7 @@ WEEKLY_CHALLENGES = {
         "emoji": "🎨"
     },
     "early_bird": {
-        "name": "🌅 Early Bird",
+        "name": "Early Bird",
         "description": "Post 5 times between 6-9 AM",
         "target": 5,
         "type": "early_posts",
@@ -123,7 +123,7 @@ WEEKLY_CHALLENGES = {
         "emoji": "🌅"
     },
     "referral_master": {
-        "name": "🤝 Referral Master",
+        "name": "Referral Master",
         "description": "Refer 3 new members this week",
         "target": 3,
         "type": "referrals",
@@ -135,14 +135,14 @@ WEEKLY_CHALLENGES = {
 # Shop items
 SHOP_ITEMS = {
     "custom_badge": {
-        "name": "🎖️ Custom Badge",
+        "name": "Custom Badge",
         "description": "Get a personalized badge for your profile",
         "price": 200,
         "type": "cosmetic",
         "emoji": "🎖️"
     },
     "xp_boost": {
-        "name": "⚡ XP Booster",
+        "name": "XP Booster",
         "description": "2x XP for 24 hours",
         "price": 150,
         "type": "boost",
@@ -150,14 +150,14 @@ SHOP_ITEMS = {
         "emoji": "⚡"
     },
     "title_unlock": {
-        "name": "👑 Custom Title",
+        "name": "Custom Title",
         "description": "Unlock a special custom title",
         "price": 300,
         "type": "title",
         "emoji": "👑"
     },
     "streak_freeze": {
-        "name": "🧊 Streak Freeze",
+        "name": "Streak Freeze",
         "description": "Protect your streak for 2 days",
         "price": 100,
         "type": "protection",
@@ -165,7 +165,7 @@ SHOP_ITEMS = {
         "emoji": "🧊"
     },
     "coin_boost": {
-        "name": "💰 Coin Multiplier",
+        "name": "Coin Multiplier",
         "description": "2x coins for 12 hours",
         "price": 120,
         "type": "boost",
@@ -173,7 +173,7 @@ SHOP_ITEMS = {
         "emoji": "💰"
     },
     "referral_boost": {
-        "name": "🤝 Referral Booster",
+        "name": "Referral Booster",
         "description": "2x referral rewards for 48 hours",
         "price": 180,
         "type": "boost",
@@ -185,37 +185,37 @@ SHOP_ITEMS = {
 # Available badges to unlock
 AVAILABLE_BADGES = {
     "social_master": {
-        "name": "🌟 Social Master",
+        "name": "Social Master",
         "description": "Get 100+ reactions in a week",
         "requirement": "100 weekly reactions",
         "emoji": "🌟"
     },
     "content_king": {
-        "name": "👑 Content King",
+        "name": "Content King",
         "description": "Post 50+ times in a week", 
         "requirement": "50 weekly posts",
         "emoji": "👑"
     },
     "early_adopter": {
-        "name": "🚀 Early Adopter",
+        "name": "Early Adopter",
         "description": "One of the first 10 members",
         "requirement": "Be among first 10 members",
         "emoji": "🚀"
     },
     "consistency_champion": {
-        "name": "🏆 Consistency Champion",
+        "name": "Consistency Champion",
         "description": "Maintain 14+ day streak",
         "requirement": "14+ day posting streak",
         "emoji": "🏆"
     },
     "referral_champion": {
-        "name": "🤝 Referral Champion",
+        "name": "Referral Champion",
         "description": "Successfully refer 10+ members",
         "requirement": "Refer 10+ active members",
         "emoji": "🤝"
     },
     "community_builder": {
-        "name": "🏗️ Community Builder",
+        "name": "Community Builder",
         "description": "Refer 25+ members",
         "requirement": "Refer 25+ active members",
         "emoji": "🏗️"
