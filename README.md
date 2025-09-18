@@ -244,7 +244,7 @@ If this project helps you, please consider:
 - ?? **Contribute code** through pull requests
 - ? **[Buy me a coffee](https://ko-fi.com/root)** to support development
 
-## ?? Need Help?
+## ? Need Help?
 
 If you encounter any issues or have questions:
 
@@ -262,12 +262,12 @@ If you encounter any issues or have questions:
 - ? Comprehensive achievement system
 
 ### Upcoming Features
-- ?? Database persistence (SQLite/PostgreSQL)
+- ??? Database persistence (SQLite/PostgreSQL)
 - ?? Web dashboard for statistics
 - ?? Multi-language support
 - ?? Custom challenge creation
 - ?? Integration with external APIs
-- ?? Advanced moderation tools
+- ??? Advanced moderation tools
 
 ---
 
