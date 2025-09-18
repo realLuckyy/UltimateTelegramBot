@@ -212,15 +212,15 @@ The bot tracks comprehensive statistics including:
 ### Project Structure
 ```
 UltimateTelegramBot/
-??? UltimateTelegrambot.py    # Main bot application
-??? requirements.txt          # Python dependencies  
-??? README.md                # Documentation
-??? LICENSE                  # MIT License
-??? .gitignore              # Git ignore rules
-??? docs/                   # Additional documentation
-    ??? SETUP.md            # Detailed setup guide
-    ??? FEATURES.md         # Feature documentation
-    ??? API.md              # Command reference
+### UltimateTelegrambot.py  # Main bot application
+### requirements.txt        # Python dependencies  
+### README.md               # Documentation
+### LICENSE                 # MIT License
+### .gitignore              # Git ignore rules
+### docs/                   # Additional documentation
+    ### SETUP.md            # Detailed setup guide
+    ### FEATURES.md         # Feature documentation
+    ### API.md              # Command reference
 ```
 
 ### Contributing
