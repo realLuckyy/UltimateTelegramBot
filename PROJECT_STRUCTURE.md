@@ -2,22 +2,22 @@
 
 ```
 UltimateTelegramBot/
-??? .github/
-?   ??? workflows/
-?       ??? ci-cd.yml                 # GitHub Actions CI/CD pipeline
-??? docs/
-?   ??? API.md                        # Complete API reference & command guide
-?   ??? DEPLOYMENT.md                 # Comprehensive deployment guide
-?   ??? FEATURES.md                   # Detailed feature documentation  
-?   ??? SETUP.md                      # Step-by-step setup instructions
-??? .gitignore                        # Git ignore rules
-??? CHANGELOG.md                      # Version history and changes
-??? CONTRIBUTING.md                   # Contribution guidelines
-??? LICENSE                           # MIT License
-??? README.md                         # Main project documentation
-??? requirements.txt                  # Python dependencies
-??? setup.py                          # Interactive setup script
-??? UltimateTelegrambot.py           # Main bot application
+### .github/
+?   ### workflows/
+?       ### ci-cd.yml                 # GitHub Actions CI/CD pipeline
+### docs/
+?   ### API.md                        # Complete API reference & command guide
+?   ### DEPLOYMENT.md                 # Comprehensive deployment guide
+?   ### FEATURES.md                   # Detailed feature documentation  
+?   ### SETUP.md                      # Step-by-step setup instructions
+### .gitignore                        # Git ignore rules
+### CHANGELOG.md                      # Version history and changes
+### CONTRIBUTING.md                   # Contribution guidelines
+### LICENSE                           # MIT License
+### README.md                         # Main project documentation
+### requirements.txt                  # Python dependencies
+### setup.py                          # Interactive setup script
+### UltimateTelegrambot.py           # Main bot application
 ```
 
 ## File Descriptions
@@ -96,36 +96,36 @@ UltimateTelegramBot/
 
 ```
 README.md (Start here)
-??? Quick setup & overview
-??? Feature highlights  
-??? Basic commands
-??? Support information
+### Quick setup & overview
+### Feature highlights  
+### Basic commands
+### Support information
 
 docs/SETUP.md (Detailed setup)
-??? BotFather configuration
-??? Installation steps
-??? Troubleshooting
-??? Configuration options
+### BotFather configuration
+### Installation steps
+### Troubleshooting
+### Configuration options
 
 docs/FEATURES.md (Feature guide)
-??? Gamification details
-??? Economy system
-??? Referral program
-??? Challenges & achievements
-??? Community management
+### Gamification details
+### Economy system
+### Referral program
+### Challenges & achievements
+### Community management
 
 docs/API.md (Technical reference)
-??? Command documentation
-??? API specifications
-??? Configuration options
-??? Integration guide
+### Command documentation
+### API specifications
+### Configuration options
+### Integration guide
 
 docs/DEPLOYMENT.md (Production guide)
-??? VPS deployment
-??? Docker containers
-??? Cloud platforms
-??? Monitoring setup
-??? Performance optimization
+### VPS deployment
+### Docker containers
+### Cloud platforms
+### Monitoring setup
+### Performance optimization
 ```
 
 ## Quality Assurance
